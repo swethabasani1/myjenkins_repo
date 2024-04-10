@@ -1,0 +1,18 @@
+pipeline {
+    agent none
+    stages {
+        stage ("back-end") {
+            agent {
+                docker {image 'maven:3.8.1-adoptopenjdk-11'} 
+            }
+            steps {
+                sh 'mvn --version'
+            }
+        stage ("data-base") {
+            agent {
+                docker {image ''}
+            }
+        }
+        }
+    }
+}
